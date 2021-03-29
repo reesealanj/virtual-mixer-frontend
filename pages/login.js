@@ -36,22 +36,35 @@ export default function Login() {
             <h1 className="text-center text-2xl font-extrabold">
                 Log In to create and update content!
             </h1>
-            <form>
-                <input
-                    type="text"
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                />
+            <form className="pt-5">
+                <label className="block">
+                    <span class="text-gray-700">Username</span>
+                    <input
+                        type="text"
+                        onChange={(e) => setUsername(e.target.value)}
+                        value={username}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    />
+                </label>
                 <br />
                 <br />
-                <input
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                />
+                <label className="block">
+                    <span class="text-gray-700">Password</span>
+                    <input
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    />
+                </label>
+
                 <br />
                 <br />
-                <button type="button" onClick={() => handleLogin()}>
+                <button
+                    type="button"
+                    onClick={() => handleLogin()}
+                    className="w-full px-3 py-3 rounded text-white font-bold items-center justify-center hover:bg-blue-400 hover:text-white bg-blue-500"
+                >
                     Login
                 </button>
             </form>
