@@ -23,14 +23,9 @@ export default function Navigation() {
                                 View Teams
                             </a>
                         </Link>
-                        <Link href="/teams/create">
+                        <Link href="/admin/dashboard">
                             <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black font-bold items-center justify-center hover:bg-red-500 hover:text-white">
-                                Create Teams
-                            </a>
-                        </Link>
-                        <Link href="/scores/submit">
-                            <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black font-bold items-center justify-center hover:bg-red-500 hover:text-white">
-                                Submit Scores
+                                Admin Dashboard
                             </a>
                         </Link>
                     </div>
