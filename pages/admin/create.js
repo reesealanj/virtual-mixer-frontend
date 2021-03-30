@@ -12,7 +12,7 @@ export default function CreateTeam() {
         let teamInfo = {};
         teamInfo.Name = teamName;
 
-        const createTeam = await fetch("http://localhost:1337/teams", {
+        const createTeam = await fetch(`${process.env.API_BASE}/teams`, {
             method: "POST",
             headers: {
                 Accept: "application/json",

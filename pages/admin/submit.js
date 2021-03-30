@@ -21,7 +21,7 @@ export default function SubmitScores({ games, teams }) {
             score: score,
         };
         console.log(scoreInfo);
-        const submitScore = await fetch("http://localhost:1337/scores", {
+        const submitScore = await fetch(`${process.env.API_BASE}/scores`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -114,9 +114,9 @@ export default function SubmitScores({ games, teams }) {
 
 export async function getServerSideProps() {
     try {
-        const gameRequest = await fetch("http://localhost:1337/games");
+        const gameRequest = await fetch(`${process.env.API_BASE}/games`);
         const gamesResponse = await gameRequest.json();
-        const teamRequest = await fetch("http://localhost:1337/teams");
+        const teamRequest = await fetch(`${process.env.API_BASE}/teams`);
         const teamResponse = await teamRequest.json();
 
         return {

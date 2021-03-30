@@ -36,7 +36,7 @@ export default function SingleTeam({ team, scores }) {
 export async function getServerSideProps({ query }) {
     const id = query.id;
     try {
-        const team = await fetch(`http://localhost:1337/teams/${id}`);
+        const team = await fetch(`${process.env.API_BASE}/teams/${id}`);
         const teamResponse = await team.json();
         const scores = teamResponse.scores;
         let games = [];
@@ -44,7 +44,7 @@ export async function getServerSideProps({ query }) {
             let gameId = scores[i].game;
             try {
                 const game = await fetch(
-                    `http://localhost:1337/games/${gameId}`
+                    `${process.env.API_BASE}/games/${gameId}`
                 );
                 const gameResponse = await game.json();
 

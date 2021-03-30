@@ -13,7 +13,7 @@ export default function Login() {
             password: password,
         };
 
-        const login = await fetch("http://localhost:1337/auth/local", {
+        const login = await fetch(`${process.env.API_BASE}/auth/local`, {
             method: "POST",
             headers: {
                 Accept: "application/json",

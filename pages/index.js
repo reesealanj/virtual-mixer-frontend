@@ -7,7 +7,7 @@ export default function Home() {
     useEffect(() => {
         async function fetchTeamList() {
             try {
-                const teams = await fetch("http://localhost:1337/teams");
+                const teams = await fetch(`${process.env.API_BASE}/teams`);
                 const teamsResponse = await teams.json();
 
                 setTeamList(teamsResponse);
