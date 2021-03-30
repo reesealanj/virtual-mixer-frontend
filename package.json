@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.2",
+    "autoprefixer": "^10.2.5",
     "next": "10.0.9",
     "nookies": "^2.5.2",
     "query-string": "^7.0.0",
