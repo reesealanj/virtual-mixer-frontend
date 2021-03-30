@@ -38,7 +38,7 @@ export default function Login() {
             </h1>
             <form className="pt-5">
                 <label className="block">
-                    <span class="text-gray-700">Username</span>
+                    <span className="text-gray-700">Username</span>
                     <input
                         type="text"
                         onChange={(e) => setUsername(e.target.value)}

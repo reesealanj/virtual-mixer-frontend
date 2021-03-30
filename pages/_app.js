@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 function MyApp({ Component, pageProps }) {
     return (
         <>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </>
     );
 }
