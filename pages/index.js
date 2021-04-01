@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import Leaderboard from "../components/Leaderboard";
+import EmptyLeaderboard from "../components/EmptyLeaderboard";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -18,12 +19,20 @@ export default function Home() {
         fetchTeamList();
     }, []);
 
+    const scoreSection =
+        teamList.length > 0 ? (
+            <Leaderboard teams={teamList} />
+        ) : (
+            <EmptyLeaderboard />
+        );
+
     return (
         <Layout title="TKE Mixer Scoreboard" className="min-h-screen">
             <h1 className="text-center text-4xl font-extrabold mb-5">
                 TKE & SDT Mixer Leaderboard
             </h1>
-            <Leaderboard teams={teamList} />
+
+            {scoreSection}
         </Layout>
     );
 }

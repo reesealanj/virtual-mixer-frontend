@@ -2,6 +2,20 @@ import Layout from "../../components/Layout";
 import Link from "next/link";
 
 export default function SingleTeam({ team, scores }) {
+    const noScores =
+        scores.length > 0 ? (
+            ""
+        ) : (
+            <li>
+                <a className="border p-4 border-grey my-2 hover:shadow-md capitalize flex items-center text-lg bg-gray-200 rounded-md">
+                    <h1 className="text-center mx-auto text-xl font-bold">
+                        <span className="mx-auto text-gray-600">
+                            {team} has no scores entered!
+                        </span>
+                    </h1>
+                </a>
+            </li>
+        );
     return (
         <Layout title="TKE Mixer Scoreboard">
             <h1 className="text-center text-4xl font-extrabold my-5">
@@ -9,6 +23,7 @@ export default function SingleTeam({ team, scores }) {
             </h1>
 
             <ul className="py-5">
+                {noScores}
                 {scores.map((score, index) => (
                     <li key={index}>
                         <a className="border p-4 border-grey my-2 hover:shadow-md capitalize flex items-center text-lg bg-gray-200 rounded-md">
