@@ -36,6 +36,26 @@ export default function SubmitScores({ games, teams }) {
         Router.push("/");
     }
 
+    async function noSubmit() {
+        let output = "Error";
+        if (teams.length < 1 && games.length < 1) {
+            output += "s:";
+        } else {
+            output += ":";
+        }
+        if (teams.length < 1) {
+            output += " No teams ";
+            if (games.length < 1) {
+                output += " or games ";
+            }
+        } else {
+            output += " No games ";
+        }
+
+        output += "in the database.";
+        alert("You cannot submit scores! " + output);
+    }
+
     let gameItems = games.map((game) => (
         <option key={game.id} value={game.id}>
             {game.Title}
@@ -48,6 +68,24 @@ export default function SubmitScores({ games, teams }) {
         </option>
     ));
 
+    let submitButton =
+        teams.length > 0 && games.length > 0 ? (
+            <button
+                type="button"
+                onClick={() => handleSubmit()}
+                className="w-full px-3 py-3 rounded text-white font-bold items-center justify-center hover:bg-green-400 hover:text-white bg-green-500"
+            >
+                Submit Score
+            </button>
+        ) : (
+            <button
+                type="button"
+                onClick={() => noSubmit()}
+                className="w-full px-3 py-3 rounded text-white font-bold items-center justify-center hover:bg-gray-400 hover:text-white bg-gray-500"
+            >
+                Score Submission Unavailable
+            </button>
+        );
     return (
         <Layout title="TKE Mixer Scoreboard">
             <h1 className="text-center text-4xl font-extrabold">
@@ -95,13 +133,7 @@ export default function SubmitScores({ games, teams }) {
                 </label>
                 <br />
                 <br />
-                <button
-                    type="button"
-                    onClick={() => handleSubmit()}
-                    className="w-full px-3 py-3 rounded text-white font-bold items-center justify-center hover:bg-green-400 hover:text-white bg-green-500"
-                >
-                    Submit Score
-                </button>
+                {submitButton}
             </form>
             <Link href={"/admin/dashboard"}>
                 <button className="my-5 w-full px-3 py-3 rounded text-white font-bold items-center justify-center hover:bg-blue-400 hover:text-white bg-blue-500">
